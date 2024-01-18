@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+// COLORS
+@import './app/dist/scss/variables.scss';
+// FONT
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Orbitron:wght@900&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: roboto;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: $primary-background-color;
+}
+
+.container {
+  width: 350px;
+  margin: 50px auto;
+}
+
+textarea:focus, input:focus, button {
+  outline: none;
+}
