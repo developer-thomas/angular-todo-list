@@ -7,7 +7,9 @@ import { TaskList } from '../../model/task-list';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent {
-  modalControl: boolean = true;
+  @Output()
+  modalControl: boolean = false;
+
   public taskList: TaskList[] = [
     { task: "Minha nova task", checked: false},
     { task: "Minha nova task 2", checked: false}
@@ -17,12 +19,22 @@ export class TodoListComponent {
     this.taskList.splice(event,1)
   }
 
-  public deleteAll() {
+  public confirmDeleteAll():void {
+    this.taskList = []
+    this.modalControl = false;
+  }
+
+  public doNotDeleteAll():void {
+    this.modalControl = false;
+  }
+
+  public showModal():void {
     this.modalControl = true;
-    this.taskList = [];
   }
 
-  showModal() {
-
-  }
 } 
+
+function Output(): (target: TodoListComponent, propertyKey: "modalControl") => void {
+  throw new Error('Function not implemented.');
+}
+

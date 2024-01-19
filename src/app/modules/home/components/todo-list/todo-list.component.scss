@@ -67,12 +67,58 @@ section {
 .modal-container {
   position: absolute;
   top: 25%;
-  left: 40%;
-  
+  left: 25%; 
   bottom: 25%;
 
+  min-width: 350px;
+  width: 50%;
+  height: 30%;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 20px;
+  
+}
 
-  width: 25%;
-  height: 25%;
-  border: 1px solid black;
+.modal-container__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: wrap column;
+  height: 100%;
+
+  .modal-container__buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 40%;
+
+    button {
+      width: 90px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #5f38b2;
+      color: white;
+      cursor: pointer;
+    }
+    .sim-btn {
+      background-color: $danger-color;
+      color: white;
+    }
+  }
+}
+
+.darkenBody {
+  body {
+    background-color: black;
+  }
+}
+
+
+
+@media (max-width: 700px) {
+  .modal-container {
+    position: absolute;
+    left: auto;
+    right: auto;
+  }
 }

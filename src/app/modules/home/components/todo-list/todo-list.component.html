@@ -1,4 +1,4 @@
-<section [ngClass]="{'loading': !taskList.length}">
+<section [ngClass]="{'loading': !taskList.length}" >
   <!-- Caso a taskList for 0 ele não aparecerá -->
   <ul *ngIf="taskList.length"> 
     <li *ngFor="let item of taskList; let i = index;">
@@ -12,6 +12,14 @@
   </ul>
 </section>
 <app-add-items></app-add-items>
-<app-btn-delete-all *ngIf="taskList.length" (click)="deleteAll()"></app-btn-delete-all>
+<app-btn-delete-all *ngIf="taskList.length" (click)="showModal()"></app-btn-delete-all>
 
-<div *ngIf="modalControl" class="modal-container">a</div>
+<div *ngIf="modalControl" class="modal-container">
+  <div class="modal-container__content">
+    <h3>Deseja excluir todos os itens?</h3>
+    <div class="modal-container__buttons-container">
+      <button (click)="confirmDeleteAll()" class="sim-btn">SIM</button>
+      <button (click)="doNotDeleteAll()">NÃO</button>
+    </div>
+  </div>
+</div>
