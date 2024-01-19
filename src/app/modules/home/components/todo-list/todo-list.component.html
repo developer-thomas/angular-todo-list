@@ -12,14 +12,20 @@
   </ul>
 </section>
 <app-add-items></app-add-items>
-<app-btn-delete-all *ngIf="taskList.length" (click)="showModal()"></app-btn-delete-all>
+<app-btn-delete-all *ngIf="taskList.length" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></app-btn-delete-all>
 
-<div *ngIf="modalControl" class="modal-container">
-  <div class="modal-container__content">
-    <h3>Deseja excluir todos os itens?</h3>
-    <div class="modal-container__buttons-container">
-      <button (click)="confirmDeleteAll()" class="sim-btn">SIM</button>
-      <button (click)="doNotDeleteAll()">NÃO</button>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    <div class="modal-header"></div>
+      <div class="modal-body">
+        <h4>Deseja excluir todos os itens?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">NÃO</button>
+        <button (click)="confirmDeleteAll()" type="button" class="btn btn-danger" data-bs-dismiss="modal">SIM</button>
+      </div>
     </div>
   </div>
 </div>
