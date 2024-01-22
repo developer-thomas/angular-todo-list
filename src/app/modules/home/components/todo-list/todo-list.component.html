@@ -3,7 +3,7 @@
   <ul *ngIf="taskList.length"> 
     <li *ngFor="let item of taskList; let i = index;">
       <input type="checkbox" [(ngModel)]="item.checked">
-      <input type="text" [(ngModel)]="item.task">
+      <input type="text" (keyup)="validationInput(item.task, i)" [(ngModel)]="item.task" [ngClass]="{'checked': item.checked}">
  
       <button (click)="deleteItem(i)">
         <img class='delete-icon'src="../../../../../assets/delete.png" alt="delete-icon">
@@ -11,7 +11,7 @@
     </li>
   </ul>
 </section>
-<app-add-items></app-add-items>
+<app-add-items (sendInputValue)="getNewTask($event)"></app-add-items>
 <app-btn-delete-all *ngIf="taskList.length" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></app-btn-delete-all>
 
 <!-- Modal -->
@@ -29,3 +29,4 @@
     </div>
   </div>
 </div>
+
